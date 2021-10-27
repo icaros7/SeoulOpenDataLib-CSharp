@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>Good_for_Cafe_Backend</RootNamespace>
+    </PropertyGroup>
+
+</Project>
