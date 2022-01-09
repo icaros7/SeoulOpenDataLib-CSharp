@@ -6,14 +6,31 @@
  * hominlab@gmail.com / iCAROS7
 */
 
-namespace Good_for_Cafe_Backend {
-    public class SeoulOpenData {
-        private string apiKey { get; set; } // 서울시 열린 광장 오픈API키 저장소
-        private int date, timeS, timeE; //TODO: 날짜 시간 조건 추가
-        private string location;
-        private bool isSet { get; set; } // 검색 조건 설정 완료 유무
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using RestSharp;
 
-        public SeoulOpenData() { isSet = false; }
+namespace Good_for_Cafe_DataEnd {
+    public class SeoulOpenData
+    {
+        private const string BaseUrl = @"http://openapi.seoul.go.kr:8088/";
+        private string _apiKey; // 서울시 열린 광장 오픈API키 저장소
+        private int _date { get; set; } // 검색 날짜
+        private int _location { get; set; } // 검색 행자부 행정동 코드
+        private int _time { get; set; } // 실제 검색 시간
+        private int _timeS { get; set; } // 검색 시작 시간
+        private int _timeE { get; set; } // 검색 종료 시간
+        private bool _isSet { get; set; } // 검색 조건 설정 완료 유무
+        private List<DataResult> list; // 검색 데이터 저장 리스트
+        public List<DataResult> getList() { return list; } // list getter
+        
+        /// <summary>
+        /// 생성자
+        /// </summary>
+        public SeoulOpenData() { _isSet = false; }
         
         /// <summary>
         /// 열린 데이터 광장으로 부터 데이터 반환 메서드
