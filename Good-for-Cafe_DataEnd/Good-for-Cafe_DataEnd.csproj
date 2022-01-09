@@ -2,7 +2,12 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-        <RootNamespace>Good_for_Cafe_Backend</RootNamespace>
+        <RootNamespace>Good_for_Cafe_DataEnd</RootNamespace>
     </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+      <PackageReference Include="RestSharp" Version="106.15.0" />
+    </ItemGroup>
 
 </Project>
