@@ -36,7 +36,7 @@ namespace Good_for_Cafe_DataEnd {
         /// 열린 데이터 광장으로 부터 데이터 반환 메서드
         /// </summary>
         private IRestResponse getData() {
-             Debug.WriteLine(@"@[D]DEBUG: Start getData Task");
+             Debug.WriteLine(@"@[D]: Start getData Task");
              var client = new RestClient(BaseUrl);
              var request =
                  new RestRequest(_apiKey + @"/json/SPOP_LOCAL_RESD_DONG/1/1/" + _date + @"/" + _time + @"/" + _location, DataFormat.Json);
@@ -45,9 +45,13 @@ namespace Good_for_Cafe_DataEnd {
              return restResponse;
          }
 
+        /// <summary>
+        /// 직렬화된 데이터 복원 메서드
+        /// </summary>
+        /// <param name="response">IRestResponse 형 데이터</param>
+        /// <returns>DataResult 객체화 된 RestResponse</returns>
         private DataResult DataDeserialize(ref IRestResponse response) {
-            Debug.WriteLine(@"@[D]DEBUG: Start Data Deserialization");
-            Debug.WriteLine(@"@[I]INFO: " + response.Content);
+            Debug.WriteLine(@"@[D]: Start Data Deserialization");
 
             DataResult re = new DataResult();
             JObject jObject = JObject.Parse(response.Content);
@@ -59,8 +63,11 @@ namespace Good_for_Cafe_DataEnd {
         }
 
         public void Connect() {
-            if (!_isSet) { return; }
-            Debug.WriteLine(@"@[D]DEBUG: Start Connect Task");
+            if (!_isSet) {
+                Debug.WriteLine(@"@[E]: Failed to start Connect, isSet is false.");
+                return; 
+            }
+            Debug.WriteLine(@"@[D]: Start Connect");
 
             try {
                 list = new List<DataResult>();
@@ -82,18 +89,23 @@ namespace Good_for_Cafe_DataEnd {
         /// <param name="location">행자부 행정동 코드</param>
         /// <param name="apiKey">서울시 열린 데이터 광장 API키</param>
         /// <returns></returns>
-        public void setInfo(int date, int timeS, int timeE, int location, string apiKey) {
+        public void setInfo(int date, int timeS, int timeE, int location) {
+            Debug.WriteLine(@"@[D]: Start setInfo");
             _date = date;
             _timeS = timeS;
             _timeE = timeE;
             _location = location;
             _apiKey = apiKey;
             _isSet = true;
+            Debug.WriteLine(@"@[I]: " + date + ", " + timeS + ", " + timeE + ", " + location);
         }
 
         /// <summary>
         /// 설정 정보 초기화 메서드
         /// </summary>
-        public void clearInfo() { _isSet = false; }
+        public void clearInfo() {
+            Debug.WriteLine(@"@[D]: Start setClear");
+            _isSet = false;
+        }
     }
 }
