@@ -31,6 +31,8 @@ namespace Good_for_Cafe_DataEnd {
         /// 생성자
         /// </summary>
         public SeoulOpenData() { _isSet = false; }
+
+        public void SetApiKey(ref string apiKey) { _apiKey = apiKey; }
         
         /// <summary>
         /// 열린 데이터 광장으로 부터 데이터 반환 메서드
@@ -95,7 +97,6 @@ namespace Good_for_Cafe_DataEnd {
             _timeS = timeS;
             _timeE = timeE;
             _location = location;
-            _apiKey = apiKey;
             _isSet = true;
             Debug.WriteLine(@"@[I]: " + date + ", " + timeS + ", " + timeE + ", " + location);
         }
