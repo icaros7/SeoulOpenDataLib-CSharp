@@ -1015,3 +1015,4 @@ cython_debug/
 # End of https://www.toptal.com/developers/gitignore/api/rider,dotnetcore,csharp,java,visualstudio,visualstudiocode,python,pycharm,intellij
 
 obj/
+.idea/
