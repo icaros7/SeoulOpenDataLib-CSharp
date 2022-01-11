@@ -18,21 +18,16 @@ namespace Good_for_Cafe_DataEnd {
     {
         private const string BaseUrl = @"http://openapi.seoul.go.kr:8088/";
         private string _apiKey; // 서울시 열린 광장 오픈API키 저장소
+        private int _timeS, _timeE; // 검색 날짜 
         private int _date { get; set; } // 검색 날짜
         private int _location { get; set; } // 검색 행자부 행정동 코드
         private int _time { get; set; } // 실제 검색 시간
-        private int _timeS { get; set; } // 검색 시작 시간
-        private int _timeE { get; set; } // 검색 종료 시간
-        private bool _isSet { get; set; } // 검색 조건 설정 완료 유무
         private List<DataResult> list; // 검색 데이터 저장 리스트
         public List<DataResult> getList() { return list; } // list getter
         
-        /// <summary>
-        /// 생성자
-        /// </summary>
-        public SeoulOpenData() { _isSet = false; }
-
         public void SetApiKey(ref string apiKey) { _apiKey = apiKey; }
+        public void SetTimeS(ref int timeS) { _timeS = timeS; }
+        public void SetTimeE(ref int timeE) { _timeE = timeE; }
         
         /// <summary>
         /// 열린 데이터 광장으로 부터 데이터 반환 메서드
@@ -65,10 +60,6 @@ namespace Good_for_Cafe_DataEnd {
         }
 
         public void Connect() {
-            if (!_isSet) {
-                Debug.WriteLine(@"@[E]: Failed to start Connect, isSet is false.");
-                return; 
-            }
             Debug.WriteLine(@"@[D]: Start Connect");
 
             try {
@@ -97,16 +88,7 @@ namespace Good_for_Cafe_DataEnd {
             _timeS = timeS;
             _timeE = timeE;
             _location = location;
-            _isSet = true;
             Debug.WriteLine(@"@[I]: " + date + ", " + timeS + ", " + timeE + ", " + location);
-        }
-
-        /// <summary>
-        /// 설정 정보 초기화 메서드
-        /// </summary>
-        public void clearInfo() {
-            Debug.WriteLine(@"@[D]: Start setClear");
-            _isSet = false;
         }
     }
 }
