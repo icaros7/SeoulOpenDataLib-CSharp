@@ -13,7 +13,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 
-namespace Good_for_Cafe_DataEnd {
+namespace SeoulOpenDataLibCSharp {
     public class SeoulOpenData
     {
         private const string BaseUrl = @"http://openapi.seoul.go.kr:8088/";

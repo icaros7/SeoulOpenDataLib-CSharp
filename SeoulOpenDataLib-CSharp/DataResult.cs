@@ -9,7 +9,7 @@
 
 using System.Collections.Generic;
 
-namespace Good_for_Cafe_DataEnd {
+namespace SeoulOpenDataLibCSharp {
     public class SPOP_LOCAL_RESD_DONG {
         /// <summary>
         /// 총 데이터 건수 (정상 조회시 반환)
