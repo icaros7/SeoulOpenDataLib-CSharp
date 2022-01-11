@@ -18,25 +18,22 @@ namespace Good_for_Cafe_DataEnd {
     {
         private const string BaseUrl = @"http://openapi.seoul.go.kr:8088/";
         private string _apiKey; // 서울시 열린 광장 오픈API키 저장소
+        private int _timeS, _timeE; // 검색 날짜 
         private int _date { get; set; } // 검색 날짜
         private int _location { get; set; } // 검색 행자부 행정동 코드
         private int _time { get; set; } // 실제 검색 시간
-        private int _timeS { get; set; } // 검색 시작 시간
-        private int _timeE { get; set; } // 검색 종료 시간
-        private bool _isSet { get; set; } // 검색 조건 설정 완료 유무
         private List<DataResult> list; // 검색 데이터 저장 리스트
         public List<DataResult> getList() { return list; } // list getter
         
-        /// <summary>
-        /// 생성자
-        /// </summary>
-        public SeoulOpenData() { _isSet = false; }
+        public void SetApiKey(ref string apiKey) { _apiKey = apiKey; }
+        public void SetTimeS(ref int timeS) { _timeS = timeS; }
+        public void SetTimeE(ref int timeE) { _timeE = timeE; }
         
         /// <summary>
         /// 열린 데이터 광장으로 부터 데이터 반환 메서드
         /// </summary>
         private IRestResponse getData() {
-             Debug.WriteLine(@"@[D]DEBUG: Start getData Task");
+             Debug.WriteLine(@"@[D]: Start getData Task");
              var client = new RestClient(BaseUrl);
              var request =
                  new RestRequest(_apiKey + @"/json/SPOP_LOCAL_RESD_DONG/1/1/" + _date + @"/" + _time + @"/" + _location, DataFormat.Json);
@@ -45,9 +42,13 @@ namespace Good_for_Cafe_DataEnd {
              return restResponse;
          }
 
+        /// <summary>
+        /// 직렬화된 데이터 복원 메서드
+        /// </summary>
+        /// <param name="response">IRestResponse 형 데이터</param>
+        /// <returns>DataResult 객체화 된 RestResponse</returns>
         private DataResult DataDeserialize(ref IRestResponse response) {
-            Debug.WriteLine(@"@[D]DEBUG: Start Data Deserialization");
-            Debug.WriteLine(@"@[I]INFO: " + response.Content);
+            Debug.WriteLine(@"@[D]: Start Data Deserialization");
 
             DataResult re = new DataResult();
             JObject jObject = JObject.Parse(response.Content);
@@ -59,8 +60,7 @@ namespace Good_for_Cafe_DataEnd {
         }
 
         public void Connect() {
-            if (!_isSet) { return; }
-            Debug.WriteLine(@"@[D]DEBUG: Start Connect Task");
+            Debug.WriteLine(@"@[D]: Start Connect");
 
             try {
                 list = new List<DataResult>();
@@ -82,18 +82,13 @@ namespace Good_for_Cafe_DataEnd {
         /// <param name="location">행자부 행정동 코드</param>
         /// <param name="apiKey">서울시 열린 데이터 광장 API키</param>
         /// <returns></returns>
-        public void setInfo(int date, int timeS, int timeE, int location, string apiKey) {
+        public void setInfo(int date, int timeS, int timeE, int location) {
+            Debug.WriteLine(@"@[D]: Start setInfo");
             _date = date;
             _timeS = timeS;
             _timeE = timeE;
             _location = location;
-            _apiKey = apiKey;
-            _isSet = true;
+            Debug.WriteLine(@"@[I]: " + date + ", " + timeS + ", " + timeE + ", " + location);
         }
-
-        /// <summary>
-        /// 설정 정보 초기화 메서드
-        /// </summary>
-        public void clearInfo() { _isSet = false; }
     }
 }
