@@ -9,7 +9,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Good_for_Cafe_DataEnd {
+namespace SeoulOpenDataLibCSharp {
     public class DataFront {
         private int _timeS, _timeE;
         private int _dateS { get; set; }
