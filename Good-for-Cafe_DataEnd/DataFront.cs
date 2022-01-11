@@ -16,7 +16,10 @@ namespace Good_for_Cafe_DataEnd {
         private int _dateE { get; set; }
         private string _apiKey { get; set; }
         private SeoulOpenData _sod = new SeoulOpenData();
-        private List<DataResult> _dr;
+        private List<DataResult> _dataResults;
+
+        // getter
+        public ref List<DataResult> GetDataResults() { return ref _dataResults; }
 
         // setter
         public void SetDateStart(ref int dateS) { _dateS = dateS; }
@@ -72,8 +75,6 @@ namespace Good_for_Cafe_DataEnd {
 
         public string Run() {
             if (!CanIRun()) { return "ERROR: Need to argument"; }
-            
-            
         }
 
         /// <summary>
@@ -86,6 +87,10 @@ namespace Good_for_Cafe_DataEnd {
                 return false;
             }
             return true;
+        }
+
+        private void ExportToTxt() {
+            
         }
     }
 }

@@ -22,8 +22,8 @@ namespace Good_for_Cafe_DataEnd {
         private int _date { get; set; } // 검색 날짜
         private int _location { get; set; } // 검색 행자부 행정동 코드
         private int _time { get; set; } // 실제 검색 시간
-        private List<DataResult> list; // 검색 데이터 저장 리스트
-        public List<DataResult> getList() { return list; } // list getter
+        private List<DataResult> _list; // 검색 데이터 저장 리스트
+        public ref List<DataResult> GetList() { return ref _list; } // list getter
         
         public void SetApiKey(ref string apiKey) { _apiKey = apiKey; }
         public void SetTimeS(ref int timeS) { _timeS = timeS; }
@@ -63,11 +63,11 @@ namespace Good_for_Cafe_DataEnd {
             Debug.WriteLine(@"@[D]: Start Connect");
 
             try {
-                list = new List<DataResult>();
+                _list = new List<DataResult>();
                 for (int i = 0; i < _timeE - _timeS + 1; i++) {
                     _time = _timeE - i;
                     IRestResponse temp = getData();
-                    list.Add(DataDeserialize(ref temp));
+                    _list.Add(DataDeserialize(ref temp));
                 }
             }
             catch (Exception e) { Debug.WriteLine(e); }
