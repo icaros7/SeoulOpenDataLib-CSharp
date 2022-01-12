@@ -73,6 +73,7 @@ namespace SeoulOpenDataLibCSharp {
             _dateE = _dateS;
         }
 
+        //TODO: Main 실행 메서드 추가
         public string Run() {
             if (!CanIRun()) { return "ERROR: Need to argument"; }
         }
@@ -89,6 +90,7 @@ namespace SeoulOpenDataLibCSharp {
             return true;
         }
 
+        //TODO: 지정된 형식으로 출력 메서드 추가
         private void ExportToTxt() {
             
         }
