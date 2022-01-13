@@ -15,7 +15,7 @@ namespace SeoulOpenDataLibCSharp {
         private int _dateS { get; set; }
         private int _dateE { get; set; }
         private string _apiKey { get; set; }
-        private SeoulOpenData _sod = new SeoulOpenData();
+        private SeoulOpenData _sod;
         private List<DataResult> _dataResults;
 
         // getter
