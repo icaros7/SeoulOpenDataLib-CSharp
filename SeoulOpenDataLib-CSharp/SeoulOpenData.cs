@@ -32,7 +32,7 @@ namespace SeoulOpenDataLibCSharp {
         /// <summary>
         /// 열린 데이터 광장으로 부터 데이터 반환 메서드
         /// </summary>
-        private IRestResponse getData() {
+        private IRestResponse GetData() {
              Debug.WriteLine(@"@[D]: Start getData Task");
              var client = new RestClient(BaseUrl);
              var request =
@@ -66,7 +66,7 @@ namespace SeoulOpenDataLibCSharp {
                 _list = new List<DataResult>();
                 for (int i = 0; i < _timeE - _timeS + 1; i++) {
                     _time = _timeE - i;
-                    IRestResponse temp = getData();
+                    IRestResponse temp = GetData();
                     _list.Add(DataDeserialize(ref temp));
                 }
             }
@@ -82,7 +82,7 @@ namespace SeoulOpenDataLibCSharp {
         /// <param name="location">행자부 행정동 코드</param>
         /// <param name="apiKey">서울시 열린 데이터 광장 API키</param>
         /// <returns></returns>
-        public void setInfo(int date, int timeS, int timeE, int location) {
+        public void SetInfo(int date, int timeS, int timeE, int location) {
             Debug.WriteLine(@"@[D]: Start setInfo");
             _date = date;
             _timeS = timeS;
