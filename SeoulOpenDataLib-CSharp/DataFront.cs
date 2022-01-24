@@ -38,7 +38,7 @@ namespace SeoulOpenDataLibCSharp {
             _apiKey = null;
         }
 
-        public DataFront(ref string apiKey) {
+        public DataFront(string apiKey) {
             SetDateToToday();
             _apiKey = apiKey;
         }
@@ -76,6 +76,8 @@ namespace SeoulOpenDataLibCSharp {
         //TODO: Main 실행 메서드 추가
         public string Run() {
             if (!CanIRun()) { return "ERROR: Need to argument"; }
+
+            return _sod.Connect();
         }
 
         /// <summary>
