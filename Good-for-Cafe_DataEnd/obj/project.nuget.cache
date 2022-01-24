@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "l/lgAQvau9A6ih5QBpnXStqUvY4JJbdDkHR6eR2992nMGUbu3TSU+wYgMA8/HCfXEqlhL0xOE0+TA8Sac/aYDA==",
+  "dgSpecHash": "OkSkmLMfGq/jK7w9mm5n4HwoiyqKJ8cLQJKZw9fLfCo761Q/JxILv045XojRXTrnIG1Slhe41T5L32fcfdv+pQ==",
   "success": true,
-  "projectFilePath": "E:\\workspace\\good_for_cafe\\Good-for-Cafe_DataEnd\\Good-for-Cafe_DataEnd.csproj",
+  "projectFilePath": "E:\\workspace\\Good_for_Cafe\\Good-for-Cafe_DataEnd\\Good-for-Cafe_DataEnd.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\homin\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\homin\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
     "C:\\Users\\homin\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\homin\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
+    "C:\\Users\\homin\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

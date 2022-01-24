@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\workspace\\good_for_cafe\\Good-for-Cafe_DataEnd\\Good-for-Cafe_DataEnd.csproj",
+      "projectUniqueName": "E:\\workspace\\Good_for_Cafe\\Good-for-Cafe_DataEnd\\Good-for-Cafe_DataEnd.csproj",
       "projectName": "Good-for-Cafe_DataEnd",
-      "projectPath": "E:\\workspace\\good_for_cafe\\Good-for-Cafe_DataEnd\\Good-for-Cafe_DataEnd.csproj",
+      "projectPath": "E:\\workspace\\Good_for_Cafe\\Good-for-Cafe_DataEnd\\Good-for-Cafe_DataEnd.csproj",
       "packagesPath": "C:\\Users\\homin\\.nuget\\packages\\",
-      "outputPath": "E:\\workspace\\good_for_cafe\\Good-for-Cafe_DataEnd\\obj\\",
+      "outputPath": "E:\\workspace\\Good_for_Cafe\\Good-for-Cafe_DataEnd\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\homin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -74,7 +74,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
